@@ -1,1 +1,66 @@
+/* applies to the entire body */
+*, *::before, *::after {
+    box-sizing: border-box;
+    padding: 2.5px;
+    margin: 5px;
+    font-family: 'PT Sans', sans-serif;
+}
+/* Color scheme for the website */
+:root {
+    --Purple: rgb(37, 10, 90);
+    --Blue: rgb(57, 100, 185);
+    --Grey: rgb(201, 201, 201);
+    --DayCast: rgb(51, 71, 90);
+    --Search: rgb(90, 162, 233);
+    --Favorable: rgb(6, 95, 6);
+    --Moderate: rgb(238, 238, 9);
+    --Severe: rgb(192, 7, 7);
+}
+/* sets font color and line height for the page */
+body {
+    color: black;
+    line-height: 1.5;
+    display: block;
+}
+/* positions header at the top of page and adds a gradient background */
+header {
+    /* position: sticky;
+    top: 0;
+    z-index: 1; */
+    background-image: linear-gradient(to right, var(--Blue), var(--Purple));
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 42px;
+}
+
+section {
+    display: flex;
+}
+
+h2 {
+    font-size: 32px;
+    font-weight: bolder;
+}
+
+h3 {
+    font-size: 28px;
+}
+section aside {
+    display: block;
+}
+
+section main {
+
+}
+
+section main span {
+    
+}
+
+
 
