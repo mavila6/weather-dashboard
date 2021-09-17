@@ -13,7 +13,7 @@
     --DarkGrey: rgb(160, 159, 159);
     --DayCast: rgb(51, 71, 90);
     --Search: rgb(90, 162, 233);
-    --Favorable: rgb(6, 95, 6);
+    --Favorable: rgb(10, 141, 10);
     --Moderate: rgb(238, 238, 9);
     --Severe: rgb(192, 7, 7);
 }
@@ -25,10 +25,11 @@ body {
 }
 /* positions header at the top of page and adds a gradient background */
 header {
-    /* position: sticky;
+    position: sticky;
     top: 0;
-    z-index: 1; */
+    z-index: 1;
     background-image: linear-gradient(to right, var(--Blue), var(--Purple));
+    margin-top: 0;
 }
 
 h1 {
@@ -55,7 +56,8 @@ h2 {
 }
 
 h3 {
-    font-size: 28px;
+    font-size: 24px;
+    margin-top: 20px;
 }
 
 form {
@@ -99,11 +101,11 @@ span {
 
 .cities {
     background-color: var(--Grey);
-    border-radius: 5px;
+    border-radius: 6px;
     text-align: center;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     width: 95%;
-    padding: 6px 0;
+    padding: 5px 0;
     border: solid white;
 }
 
@@ -120,4 +122,26 @@ span {
 .results {
     border: solid black;
     width: 1100px;
+    margin-top: 25px;
+}
+
+.index{
+    background-color: var(--Favorable);
+    color: white;
+    width: 75px;
+    text-align: center;
+    margin-left: 10px;
+    border-radius: 5px;
+}
+
+.fiveCast {
+    display: flex;
+    justify-content: space-between;
+}
+
+.fiveDays {
+    background-color: var(--DayCast);
+    color:white;
+    padding-right: 40px;
+    padding-bottom: 25px;
 }
