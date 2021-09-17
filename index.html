@@ -14,32 +14,33 @@
     <header>
         <h1>Weather Dashboard</h1>
     </header>
-    <section>
+    <main>
         <aside>
             <form>
                 <h2>Search for a City:</h2>
-                <input type="submit" value="">
-                <button id="search">Search</button>
+                <input type="search" class="textbox" value="">
+                <button id="search" class="search">Search</button>
             </form>
             <span class="savedSearch">
-                <p class="city">City1</p>
-                <p class="city">City2</p>
-                <p class="city">City3</p>
-                <p class="city">City4</p>
-                <p class="city">City5</p>
-                <p class="city">City6</p>
-                <p class="city">City7</p>
-                <p class="city">City8</p>
+                <p class="cities">City1</p>
+                <p class="cities">City2</p>
+                <p class="cities">City3</p>
+                <p class="cities">City4</p>
+                <p class="cities">City5</p>
+                <p class="cities">City6</p>
+                <p class="cities">City7</p>
+                <p class="cities">City8</p>
             </span>
         </aside>
-        <main>
-            <span class="results">
+        <section>
+            <div class="results">
                 <h2>City (09/16/2021)</h2>
+                <img src="" alt="">
                 <p>Temp: 74.01°F</p>
                 <p>Wind: 6.67 MPH</p>
                 <p>Humidity: 46 %</p>
                 <p>UV Index: 0.47</p>
-            </span>
+            </div>
             <h3>5-Day Forecast:</h3>
             <span class="fiveCast">
                 <div>
@@ -78,7 +79,7 @@
                     <p>Humidity: 46 %</p>
                 </div>
             </span>
-        </main>
-    </section>
+        </section>
+    </main>
 </body>
 </html>

@@ -10,6 +10,7 @@
     --Purple: rgb(37, 10, 90);
     --Blue: rgb(57, 100, 185);
     --Grey: rgb(201, 201, 201);
+    --DarkGrey: rgb(160, 159, 159);
     --DayCast: rgb(51, 71, 90);
     --Search: rgb(90, 162, 233);
     --Favorable: rgb(6, 95, 6);
@@ -38,8 +39,14 @@ h1 {
     font-size: 42px;
 }
 
-section {
+main {
     display: flex;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+section {
+    margin-left: 20px;
 }
 
 h2 {
@@ -50,17 +57,67 @@ h2 {
 h3 {
     font-size: 28px;
 }
-section aside {
-    display: block;
+
+form {
+    padding-bottom: 10px;
+    border-bottom: solid grey;
+    margin-bottom: 20px;
+}
+span {
+    margin: 0;
+    padding: 0;
 }
 
-section main {
-
+.textbox {
+    width: 95%;
+    height: 40px;
+    padding: 0 10px;
+    background-color: white;
+    border-radius: 5px;
+    border: solid grey;
+    color: var(--DarkGrey);
+    font-weight: bolder;
 }
 
-section main span {
-    
+.search {
+    width: 95%;
+    font-size: 16px;
+    color: white;
+    background-color: var(--Search);
+    border: solid white;
+    border-radius: 5px;
+    padding: 5px 0;
 }
 
+.search:hover{
+    border: solid var(--Purple);
+}
 
+.search:active {
+    background-color: var(--Purple);
+}
 
+.cities {
+    background-color: var(--Grey);
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 12px;
+    width: 95%;
+    padding: 6px 0;
+    border: solid white;
+}
+
+.cities:hover {
+    border: solid black;
+}
+
+.cities:active {
+    background-color: var(--Purple);
+    border: solid var(--Purple);
+    color: white;
+}
+
+.results {
+    border: solid black;
+    width: 1100px;
+}
