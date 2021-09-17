@@ -31,7 +31,7 @@ header {
     background-image: linear-gradient(to right, var(--Blue), var(--Purple));
     margin-top: 0;
 }
-
+/* sets styles for the text in header */
 h1 {
     display: flex;
     justify-content: center;
@@ -39,37 +39,38 @@ h1 {
     color: white;
     font-size: 42px;
 }
-
+/* Sets main display as flex and removes spacing around elements */
 main {
     display: flex;
     margin-top: 0;
     padding-top: 0;
 }
-
+/* adds margin to left of section element */
 section {
     margin-left: 20px;
 }
-
+/* adds styles to each h2 element */
 h2 {
     font-size: 32px;
     font-weight: bolder;
 }
-
+/* styles the h3 elements */
 h3 {
     font-size: 24px;
     margin-top: 20px;
 }
-
+/* adds styling to the form */
 form {
     padding-bottom: 10px;
     border-bottom: solid grey;
     margin-bottom: 20px;
 }
+/* removes spacing around span element */
 span {
     margin: 0;
     padding: 0;
 }
-
+/* styles the input box in form */
 .textbox {
     width: 95%;
     height: 40px;
@@ -80,7 +81,7 @@ span {
     color: var(--DarkGrey);
     font-weight: bolder;
 }
-
+/* styles the search button in form */
 .search {
     width: 95%;
     font-size: 16px;
@@ -90,15 +91,15 @@ span {
     border-radius: 5px;
     padding: 5px 0;
 }
-
+/* adds hover effect to search button */
 .search:hover{
     border: solid var(--Purple);
 }
-
+/* adds active effect to search button */
 .search:active {
     background-color: var(--Purple);
 }
-
+/* adds styling to the saved cities under form */
 .cities {
     background-color: var(--Grey);
     border-radius: 6px;
@@ -108,23 +109,23 @@ span {
     padding: 5px 0;
     border: solid white;
 }
-
+/* adds hover effect to cities */
 .cities:hover {
     border: solid black;
 }
-
+/* adds active effect to cities */
 .cities:active {
     background-color: var(--Purple);
     border: solid var(--Purple);
     color: white;
 }
-
+/* Adds style to results container */
 .results {
     border: solid black;
     width: 1100px;
     margin-top: 25px;
 }
-
+/* styles the UV index */
 .index{
     background-color: var(--Favorable);
     color: white;
@@ -133,12 +134,12 @@ span {
     margin-left: 10px;
     border-radius: 5px;
 }
-
+/* positions the elements in the five day forecast section */
 .fiveCast {
     display: flex;
     justify-content: space-between;
 }
-
+/* styles each of the five day forecast containers */
 .fiveDays {
     background-color: var(--DayCast);
     color:white;

@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Metadata conatined in the head of html document -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Links to the google font used for the html and the css stylesheet -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
     <link href="./assets/css/style.css" rel="stylesheet">
-    <title>Document</title>
+    <title>Weather Dashboard</title>
 </head>
 <body>
+    <!-- Header of body containing the title of app -->
     <header>
         <h1>Weather Dashboard</h1>
     </header>
+    <!-- Main section of body containing the search, results, and 5-day forecast sections -->
     <main>
+        <!-- Aside section for the search form and to display the saved searches -->
         <aside>
             <form>
                 <h2>Search for a City:</h2>
@@ -32,7 +37,9 @@
                 <p class="cities">City8</p>
             </span>
         </aside>
+        <!-- section used as container for the results and 5-day forecast -->
         <section>
+            <!-- Results of search are displayed -->
             <div class="results">
                 <h2 class="date">City (09/16/2021)</h2>
                 <img src="" alt="">
@@ -41,8 +48,11 @@
                 <p class="humidity">Humidity: 46 %</p>
                 <p class="UV">UV Index:<p class="index">0.47</p></p>
             </div>
+            <!-- Heading for the five day forecast -->
             <h3>5-Day Forecast:</h3>
+            <!-- container for the forecast for each of the five days -->
             <span class="fiveCast">
+                <!-- Divs containing each day forecast -->
                 <div class="fiveDays">
                     <h4 class="fiveDate">09/17/2021</h4>
                     <img src="" alt="">
@@ -81,5 +91,7 @@
             </span>
         </section>
     </main>
+    <!-- Link to the javascript file for this page -->
+    <script src="assets/js/script.js"></script>
 </body>
 </html>
