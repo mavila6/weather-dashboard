@@ -127,7 +127,6 @@ span {
 }
 /* styles the UV index */
 .index{
-    background-color: var(--Favorable);
     color: white;
     width: 75px;
     text-align: center;
@@ -145,6 +144,10 @@ span {
     color:white;
     padding-right: 40px;
     padding-bottom: 25px;
+}
+
+.hide {
+    display: none;
 }
 
 /* Media Queries */
