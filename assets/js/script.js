@@ -15,7 +15,7 @@ $(document).ready(() => {
     $("#search").on('click', e => {
         // Prevents refresh on button click
         e.preventDefault();
-        const city = $(".textbox").val().trim();
+        let city = $(".textbox").val().trim();
         // Adds searched city to the history array, saves array to local storage, clears the input, alerts if no value is searched for, & makes calls to the appropriate functions
         if (city) {
             history.push(city);
@@ -32,12 +32,6 @@ $(document).ready(() => {
         //localStorage.clear();
     });
 
-    //Added event listener using JQuery to the document to listen for clicks on the search history cities
-    $(document).on('click', ".cities", () => {
-        console.log('whats up');
-        // const city = $(this).text();
-        // getWeather(city);
-    })
     // Makes the fetch call to OpenWeather Api to get the weather data
     function getWeather(city) {
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}`)
@@ -72,9 +66,14 @@ $(document).ready(() => {
     // Function to dynamically create elements for each searched city and display them on the page 
     function displayCity() {
         searches.empty();
-        for (let i = 0; i < history.length; i++) {
-            let pEl = element = $("<p>").text(history[i]);
+        for (let i = 0; i < history.length &&; i++) {
+            let pEl = $("<p>").text(history[i]);
             pEl.addClass("cities");
+             //Added event listener using JQuery to the document to listen for clicks on the search history cities
+            $(document).on('click', ".cities", e => {
+                console.log($(e.text));
+                // getWeather(); nnot sure whats going on here will come back to it later
+            })
             searches.prepend(pEl);
         }
     };
@@ -108,4 +107,6 @@ $(document).ready(() => {
         }
     };
 });
-
+// need to make local storage appear on load
+// need to make saved search cities load the weather for clicked city
+// need to stop generating new cities after 8
