@@ -66,7 +66,7 @@ $(document).ready(() => {
     // Function to dynamically create elements for each searched city and display them on the page 
     function displayCity() {
         searches.empty();
-        for (let i = 0; i < history.length &&; i++) {
+        for (let i = 0; i < history.length, i++) {
             let pEl = $("<p>").text(history[i]);
             pEl.addClass("cities");
              //Added event listener using JQuery to the document to listen for clicks on the search history cities
