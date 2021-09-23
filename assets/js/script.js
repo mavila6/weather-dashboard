@@ -31,6 +31,11 @@ $(document).ready(() => {
         }
         //localStorage.clear();
     });
+
+    //Added event listener using JQuery to the saved search history cities
+    $(".cities").on('click', e => {
+        
+    })
     // Makes the fetch call to OpenWeather Api to get the weather data
     function getWeather(city) {
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}`)
@@ -54,6 +59,7 @@ $(document).ready(() => {
                 $(".wind").text('Wind: ' + data.current.wind_speed + ' MPH');
                 $(".humidity").text('Humidity: ' + data.current.humidity + ' %');
                 $(".index").text(uvi);
+                $(".fiveCast").empty();
                 uvConditions(uvi);
                 fiveDayForecast(data);
                 console.log(data);
@@ -84,7 +90,20 @@ $(document).ready(() => {
 
     // Function that generates the 5-Day Forecast section
     function fiveDayForecast(data) {
-        console.log('big summer blowout')
+        for (let i=1; i < 6; i++) {
+            
+            let fiveDates = data.daily[i].dt;
+            let forecast = ` 
+                <div class="fiveDays">
+                    <h4 class="fiveDate">${fiveDates}</h4>
+                    <img src="http://openweathermap.org/img/w/${iconCode}.png" alt="weather icon">
+                    <p class="fiveTemp">Temp: ${data.daily[i].temp.day}°F</p>
+                    <p class="fiveWind">Wind: ${data.daily[i].wind_speed} MPH</p>
+                    <p class="fiveHumid">Humidity: ${data.daily[i].humidity} %</p>
+                </div>
+            `;
+            $(".fiveCast").append(forecast);
+        }
     };
 });
 
