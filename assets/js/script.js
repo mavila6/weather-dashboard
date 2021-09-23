@@ -7,6 +7,7 @@ const date = (today.getMonth()+1)+'/'+today.getDate()+'/'+today.getFullYear();
 let history = [];
 let latitude;
 let longitude;
+let iconCode;
 
 // A jQuery function that is available only after the document is loaded and ready for DOM manipulation
 $(document).ready(() => {
@@ -22,13 +23,16 @@ $(document).ready(() => {
             $(".main").removeClass("hide");
             $(".textbox").val("");
             displayCity();
+            getWeather(city);
         } else if (city.value===undefined) {
             alert("Cannot locate weather for this city.")
         } else {
             alert("Must enter a city first!")
         }
         //localStorage.clear();
-        // Makes the fetch call to OpenWeather Api to get the weather data
+    });
+    // Makes the fetch call to OpenWeather Api to get the weather data
+    function getWeather(city) {
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}`)
         .then(response => {
             return response.json();
@@ -42,17 +46,21 @@ $(document).ready(() => {
                 return response.json();
             })
             .then(data => {
+                iconCode = data.current.weather[0].icon;
+                const iconUrl = "http://openweathermap.org/img/w/" + iconCode + ".png";
+                let uvi = data.current.uvi;
+                $("#icon").attr('src', iconUrl);
                 $(".temp").text('Temp: ' + data.current.temp + '°F');
                 $(".wind").text('Wind: ' + data.current.wind_speed + ' MPH');
                 $(".humidity").text('Humidity: ' + data.current.humidity + ' %');
-                $(".index").text(data.current.uvi);
+                $(".index").text(uvi);
+                uvConditions(uvi);
+                fiveDayForecast(data);
                 console.log(data);
             })
         })
-    });
-    
-    // Added event listener using JQuery to saved cities 
-    
+    };
+
     // Function to dynamically create elements for each searched city and display them on the page 
     function displayCity() {
         searches.empty();
@@ -61,13 +69,22 @@ $(document).ready(() => {
             pEl.addClass("cities");
             searches.prepend(pEl);
         }
-    }
+    };
 
     // Function that changes the UV color based on conditions
-    
+    function uvConditions(uvi) {
+        if (uvi <= 2) {
+            $(".index").attr("style", "background-color: var(--Favorable)");
+        } else if (uvi >= 3 && uvi <= 7) {
+            $(".index").attr("style", "background-color: var(--Moderate)");
+        } else if (uvi >= 8) {
+            $(".index").attr("style", "background-color: var(--Severe)");
+        }
+    };
+
     // Function that generates the 5-Day Forecast section
-    function fiveDayForecast() {
-        
-    }
+    function fiveDayForecast(data) {
+        console.log('big summer blowout')
+    };
 });
 
