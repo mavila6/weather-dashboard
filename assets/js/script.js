@@ -32,9 +32,11 @@ $(document).ready(() => {
         //localStorage.clear();
     });
 
-    //Added event listener using JQuery to the saved search history cities
-    $(".cities").on('click', e => {
-        
+    //Added event listener using JQuery to the document to listen for clicks on the search history cities
+    $(document).on('click', ".cities", () => {
+        console.log('whats up');
+        // const city = $(this).text();
+        // getWeather(city);
     })
     // Makes the fetch call to OpenWeather Api to get the weather data
     function getWeather(city) {
@@ -91,7 +93,7 @@ $(document).ready(() => {
     // Function that generates the 5-Day Forecast section
     function fiveDayForecast(data) {
         for (let i=1; i < 6; i++) {
-            
+            iconCode = data.daily[i].weather[0].icon;
             let fiveDates = data.daily[i].dt;
             let forecast = ` 
                 <div class="fiveDays">
