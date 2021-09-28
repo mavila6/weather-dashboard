@@ -4,7 +4,7 @@ const searches = $(".savedSearch");
 const today = new Date();
 const date = (today.getMonth()+1)+'/'+today.getDate()+'/'+today.getFullYear();
 // Empty array to store searches and undefined variables to be used later
-let history = [];
+let history = JSON.parse(localStorage.getItem("history")) || [];
 let latitude;
 let longitude;
 let iconCode;
@@ -22,16 +22,16 @@ $(document).ready(() => {
             localStorage.setItem("history", JSON.stringify(history));
             $(".main").removeClass("hide");
             $(".textbox").val("");
-            displayCity();
             getWeather(city);
+            displayCity();
         } else if (city.value===undefined) {
             alert("Cannot locate weather for this city.")
         } else {
             alert("Must enter a city first!")
         }
-        //localStorage.clear();
+        // localStorage.clear();
     });
-
+    
     // Makes the fetch call to OpenWeather Api to get the weather data
     function getWeather(city) {
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${apiKey}`)
@@ -62,22 +62,25 @@ $(document).ready(() => {
             })
         })
     };
-
+    
     // Function to dynamically create elements for each searched city and display them on the page 
     function displayCity() {
         searches.empty();
         for (let i = 0; i < history.length; i++) {
             let pEl = $("<p>").text(history[i]);
             pEl.addClass("cities");
-             //Added event listener using JQuery to the document to listen for clicks on the search history cities
-            $(document).on('click', ".cities", e => {
-                console.log($(e.text));
-                // getWeather(); nnot sure whats going on here will come back to it later
-            })
             searches.prepend(pEl);
         }
+        //Added event listener using JQuery to the document to listen for clicks on the search history cities
+        $(document).on('click', '.cities', e => {
+            e.preventDefault();
+            let city = $(this).text();
+            console.log(city);
+            // I believe my logic is correct but not sure why when I click one of the saved search history buttons it fails to grab the text value and use it to run the getWeather function or it grabs the text value of all the elements 
+            // getWeather(city);
+        });
     };
-
+    
     // Function that changes the UV color based on conditions
     function uvConditions(uvi) {
         if (uvi <= 2) {
@@ -88,25 +91,25 @@ $(document).ready(() => {
             $(".index").attr("style", "background-color: var(--Severe)");
         }
     };
-
+    
     // Function that generates the 5-Day Forecast section
     function fiveDayForecast(data) {
         for (let i=1; i < 6; i++) {
             iconCode = data.daily[i].weather[0].icon;
             let fiveDates = data.daily[i].dt;
             let forecast = ` 
-                <div class="fiveDays">
-                    <h4 class="fiveDate">${fiveDates}</h4>
-                    <img src="http://openweathermap.org/img/w/${iconCode}.png" alt="weather icon">
-                    <p class="fiveTemp">Temp: ${data.daily[i].temp.day}°F</p>
-                    <p class="fiveWind">Wind: ${data.daily[i].wind_speed} MPH</p>
-                    <p class="fiveHumid">Humidity: ${data.daily[i].humidity} %</p>
-                </div>
+            <div class="fiveDays">
+            <h4 class="fiveDate">${fiveDates}</h4>
+            <img src="http://openweathermap.org/img/w/${iconCode}.png" alt="weather icon">
+            <p class="fiveTemp">Temp: ${data.daily[i].temp.day}°F</p>
+            <p class="fiveWind">Wind: ${data.daily[i].wind_speed} MPH</p>
+            <p class="fiveHumid">Humidity: ${data.daily[i].humidity} %</p>
+            </div>
             `;
             $(".fiveCast").append(forecast);
         }
     };
+
+    // calls the display city function upon page load to display previously searched cities
+    displayCity();
 });
-// need to make local storage appear on load
-// need to make saved search cities load the weather for clicked city
-// need to stop generating new cities after 8
