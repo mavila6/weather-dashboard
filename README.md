@@ -23,7 +23,7 @@ A weather application for travelers used to search the weather conditions for mu
 
 ### Screenshot
 
-![Screenshot of Weather Dash](./assets/images/weather-dash.png)
+![Screenshot of Weather Dashboard](./assets/images/weather-dash.png)
 
 ### Acknowledgements
 
